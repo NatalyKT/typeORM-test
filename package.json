@@ -1,0 +1,40 @@
+{
+   "name": "typeorm-test",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM",
+   "type": "commonjs",
+   "license": "MIT",
+   "readmeFilename": "README.md",
+   "author": {
+     "name": "nataly_kt",
+     "email": "nataly_kt@hotmail.com"
+   },
+   "repository": {
+     "type": "git",
+     "url": "https://github.com/NatalyKT/typeORM-test.git"
+   },
+   "bugs": {
+     "url": "https://github.com/NatalyKT/typeORM-test/issues"
+   },
+   "tags": [
+     "orm",
+     "typescript",
+     "typescript-orm",
+     "typeorm-sample",
+     "typeorm-example"
+   ],
+   "devDependencies": {
+      "ts-node": "10.7.0",
+      "@types/node": "^16.11.10",
+      "typescript": "4.5.2"
+   },
+   "dependencies": {
+      "typeorm": "0.3.7",
+      "reflect-metadata": "^0.1.13",
+      "pg": "^8.4.0"
+   },
+   "scripts": {
+      "start": "ts-node src/index.ts",
+      "typeorm": "typeorm-ts-node-commonjs"
+   }
+}
