@@ -11,10 +11,12 @@ AppDataSource.initialize()
         photo.views = 1
         photo.isPublished = true
 
-        await AppDataSource.manager.save(photo)
+        const photoRepository = AppDataSource.getRepository(Photo)
+
+        await photoRepository.save(photo)
         console.log("Photo has been saved. Photo id is", photo.id)
 
-        const savedPhotos = await AppDataSource.manager.find(Photo)
+        const savedPhotos = await photoRepository.find()
         console.log("All photos from the db: ", savedPhotos)
 
     })
