@@ -5,6 +5,13 @@ AppDataSource.initialize()
     .then(async () => {
 
         const photoRepository = AppDataSource.getRepository(Photo)
+
+        const photoToUpdate = await photoRepository.findOneBy({
+            id: 1,
+        })
+        photoToUpdate.name = "Me, my friends and polar bears"
+        await photoRepository.save(photoToUpdate)
+
         const allPhotos = await photoRepository.find()
         console.log("All photos from the db: ", allPhotos)
 
