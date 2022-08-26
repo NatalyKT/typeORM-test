@@ -12,6 +12,11 @@ AppDataSource.initialize()
         photoToUpdate.name = "Me, my friends and polar bears"
         await photoRepository.save(photoToUpdate)
 
+        const photoToRemove = await photoRepository.findOneBy({
+            id: 3,
+        })
+        await photoRepository.remove(photoToRemove)
+
         const allPhotos = await photoRepository.find()
         console.log("All photos from the db: ", allPhotos)
 
