@@ -4,7 +4,7 @@ import { PhotoMetadata } from "./entity/PhotoMetadata"
 
 AppDataSource.initialize()
     .then(async () => {
-
+/*
         const photo = new Photo()
         photo.name = "Me and Bears"
         photo.description = "I am near polar bears"
@@ -24,6 +24,6 @@ AppDataSource.initialize()
 
         await photoRepository.save(photo)
 
-        console.log("Photo is saved, photo metadata is saved too.")
+        console.log("Photo is saved, photo metadata is saved too.")*/
     })
     .catch((error) => console.log(error))
