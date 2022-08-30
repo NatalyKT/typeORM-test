@@ -23,17 +23,19 @@ AppDataSource.initialize()
         photo.albums = [album1, album2]
         await AppDataSource.manager.save(photo)
 
-        const loadedPhoto = await AppDataSource.getRepository(Photo).findOne({
-            where: {
-                id: 1,
-            },
-            relations: {
-                albums: true,
-            },
-        })
+        const photos = await AppDataSource.getRepository(Photo)
+            .createQueryBuilder("photo")
+            .innerJoinAndSelect("photo.metadata", "metadata")
+            .leftJoinAndSelect("photo.albums", "album")
+            .where("photo.isPublished = true")
+            .andWhere("(photo.name = :photoName)")
+            .orderBy("photo.id", "DESC")
+            .skip()
+            .take(1)
+            .setParameters({ photoName: "Me and Bears"})
+            .getMany()
 
-        console.log("Photo is saved, photo & album data is saved too, ", loadedPhoto)
+        console.log(photos)
 
-        
     })
     .catch((error) => console.log(error))
